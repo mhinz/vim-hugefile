@@ -16,7 +16,6 @@ augroup hugefile
         \ let size = getfsize(expand('<afile>')) |
         \ if (size > s:trigger_size) || (size == -2) |
         \   echohl WarningMsg | echomsg 'WARNING: altering options for this huge file!' | echohl None |
-        \   redraw |
         \   call hugefile#toggle() |
         \ endif |
         \ unlet size
