@@ -5,36 +5,45 @@ if exists('g:autoloaded_hugefile')
 endif
 let g:autoloaded_hugefile = 1
 
+let g:counter = 0
+
 " #toggle {{{1
 function! hugefile#toggle()
   if exists('b:hugefile_saved_settings')
-    call s:options_restore()
+    call s:set_options()
   else
-    call s:options_save()
-    call s:options_set()
+    let g:counter += 1
+    call s:save_options()
+    call s:set_options()
+    call s:set_autocmds()
   endif
 endfunction
+" }}}
 
-" s:options_save {{{1
-function! s:options_save()
+" s:save_options {{{1
+function! s:save_options()
   let b:hugefile_saved_settings = {
         \ 'eventignore': &eventignore,
         \ 'foldmethod':  &foldmethod,
         \ }
 endfunction
 
-" s:options_restore {{{1
-function! s:options_restore()
+" s:restore_options {{{1
+function! s:restore_options()
   let &eventignore = b:hugefile_saved_settings.eventignore
   let &foldmethod  = b:hugefile_saved_settings.foldmethod
-
-  unlet b:hugefile_saved_settings
 endfunction
 
-" s:options_set {{{1
-function! s:options_set()
+" s:set_options {{{1
+function! s:set_options()
   syntax clear
-  set eventignore=all
+  set eventignore=FileType
   set foldmethod=manual
 endfunction
+" }}}
 
+" s:set_autocmds {{{1
+function! s:set_autocmds()
+  autocmd hugefile BufEnter <buffer> call s:set_options()
+  autocmd hugefile BufLeave <buffer> call s:restore_options()
+endfunction
