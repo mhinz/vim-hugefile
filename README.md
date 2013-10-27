@@ -19,8 +19,8 @@ vimrc.
 Before the options for handling huge files are set, your old settings get saved.
 `:HugefileToggle` toggles the current state.
 
-Disclaimer
-----------
+Alternatives?
+-------------
 
 Yes, there's also
 [LargeFile](http://www.vim.org/scripts/script.php?script_id=1506), but my eyes
@@ -28,3 +28,13 @@ felt the strong urge to die in a raging fire when they saw the code. Moreover..
 vimball, enough said.
 
 It just doesn't look like modern VimL.
+
+Real alternatives?
+------------------
+
+Honestly, don't use Vim for big files. Or use filters to read only certain
+parts:
+
+```
+$ vim <(tail hugelogfile)
+```
