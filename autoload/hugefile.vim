@@ -5,14 +5,11 @@ if exists('g:autoloaded_hugefile')
 endif
 let g:autoloaded_hugefile = 1
 
-let g:counter = 0
-
 " #toggle {{{1
 function! hugefile#toggle()
   if exists('b:hugefile_saved_settings')
     call s:set_options()
   else
-    let g:counter += 1
     call s:save_options()
     call s:set_options()
     call s:set_autocmds()
