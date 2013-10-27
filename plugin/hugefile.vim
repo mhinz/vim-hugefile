@@ -8,7 +8,7 @@ let g:loaded_hugefile = 1
 "
 " The default size is 2 MiB.
 "
-let s:trigger_size = exists('g:hugefile_trigger_size') ? (g:hugefile_size * 1048576) : 2097152
+let s:trigger_size = exists('g:hugefile_trigger_size') ? (g:hugefile_trigger_size * 1048576) : 2097152
 
 augroup hugefile
   autocmd!

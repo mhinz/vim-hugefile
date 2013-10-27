@@ -25,16 +25,17 @@ endfunction
 function! s:save_options()
   let b:hugefile_saved_settings = {
         \ 'eventignore': &eventignore,
-        \ 'foldmethod':  &foldmethod,
+        \ 'foldmethod':  &l:foldmethod,
+        \ 'swapfile':    &l:swapfile,
         \ }
 endfunction
 
 " s:restore_options {{{1
 function! s:restore_options()
-  let &eventignore = b:hugefile_saved_settings.eventignore
-  let &foldmethod  = b:hugefile_saved_settings.foldmethod
+  let &eventignore  = b:hugefile_saved_settings.eventignore
+  let &l:foldmethod = b:hugefile_saved_settings.foldmethod
+  let &l:swapfile   = b:hugefile_saved_settings.swapfile
 
-  syntax on
   doautocmd FileType
 
   let b:hugefile_enabled = 0
@@ -44,8 +45,9 @@ endfunction
 function! s:set_options()
   syntax clear
 
-  set eventignore=FileType
-  set foldmethod=manual
+  set      eventignore=FileType
+  setlocal foldmethod=manual
+  setlocal noswapfile
 
   let b:hugefile_enabled = 1
 endfunction
