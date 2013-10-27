@@ -6,8 +6,8 @@ endif
 let g:autoloaded_hugefile = 1
 
 " #toggle {{{1
-function! huge#toggle()
-  if exists('b:huge_saved_settings')
+function! hugefile#toggle()
+  if exists('b:hugefile_saved_settings')
     call s:options_restore()
   else
     call s:options_save()
@@ -17,7 +17,7 @@ endfunction
 
 " s:options_save {{{1
 function! s:options_save()
-  let b:huge_saved_settings = {
+  let b:hugefile_saved_settings = {
         \ 'eventignore': &eventignore,
         \ 'foldmethod':  &foldmethod,
         \ }
@@ -25,10 +25,10 @@ endfunction
 
 " s:options_restore {{{1
 function! s:options_restore()
-  let &eventignore = b:huge_saved_settings.eventignore
-  let &foldmethod  = b:huge_saved_settings.foldmethod
+  let &eventignore = b:hugefile_saved_settings.eventignore
+  let &foldmethod  = b:hugefile_saved_settings.foldmethod
 
-  unlet b:huge_saved_settings
+  unlet b:hugefile_saved_settings
 endfunction
 
 " s:options_set {{{1

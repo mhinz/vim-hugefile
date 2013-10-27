@@ -8,17 +8,17 @@ let g:loaded_hugefile = 1
 "
 " The default size is 2 MiB.
 "
-let s:trigger_size = exists('g:huge_trigger_size') ? (g:huge_size * 1048576) : 2097152
+let s:trigger_size = exists('g:hugefile_trigger_size') ? (g:hugefile_size * 1048576) : 2097152
 
-augroup huge
+augroup hugefile
   autocmd!
   autocmd BufReadPre *
         \ let size = getfsize(expand('<afile>')) |
         \ if (size > s:trigger_size) || (size == -2) |
         \   echohl WarningMsg | echomsg 'WARNING: altering options for this huge file!' | echohl None |
         \   redraw |
-        \   call huge#toggle() |
+        \   call hugefile#toggle() |
         \ endif
 augroup END
 
-command! -bar HugeToggle call huge#toggle()
+command! -bar HugefileToggle call hugefile#toggle()
