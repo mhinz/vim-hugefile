@@ -6,8 +6,10 @@ the usual options set makes loading even slower.
 
 For all huge files this plugin disables:
 
-* FileType autocmds (syntax highlighting)
+* FileType autocmds
+* syntax highlighting
 * folding
+* swapfile
 
 This happens automatically for all files that are bigger or equal to 2 MiB. You
 can change this value by setting `g:hugefile_trigger_size` (in MiB) in your
