@@ -1,10 +1,11 @@
 vim-hugefile
 ------------
 
-Vim always loads entire files. Therefore loading huge files is slow. And having
-the usual options set makes loading even slower.
+Vim always loads entire files. Therefore loading huge files (logfiles?) is
+pretty slow. And having the usual options set makes loading even slower.
 
-For all huge files this plugin disables:
+This plugin reduces the impact of the latter heavily by disabling these options
+for all huge files:
 
 * FileType autocmds
 * syntax highlighting
@@ -16,5 +17,14 @@ can change this value by setting `g:hugefile_trigger_size` (in MiB) in your
 vimrc.
 
 Before the options for handling huge files are set, your old settings get saved.
-If you feel the strong urge to experience the normal behaviour even for huge
-files, you can always toggle the state via `:HugefileToggle`.
+`:HugefileToggle` toggles the current state.
+
+Disclaimer
+----------
+
+Yes, there's also
+[LargeFile](http://www.vim.org/scripts/script.php?script_id=1506), but my eyes
+felt the strong urge to die in a raging fire when they saw the code. Moreover..
+vimball, enough said.
+
+It just doesn't look like modern VimL.
