@@ -18,7 +18,8 @@ augroup hugefile
         \   echohl WarningMsg | echomsg 'WARNING: altering options for this huge file!' | echohl None |
         \   redraw |
         \   call hugefile#toggle() |
-        \ endif
+        \ endif |
+        \ unlet size
 augroup END
 
 command! -bar HugefileToggle call hugefile#toggle()

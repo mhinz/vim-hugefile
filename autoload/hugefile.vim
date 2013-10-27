@@ -33,7 +33,7 @@ endfunction
 
 " s:options_set {{{1
 function! s:options_set()
-  syntax off
+  syntax clear
   set eventignore=all
   set foldmethod=manual
 endfunction
