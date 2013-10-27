@@ -1,9 +1,9 @@
 " vim: et sw=2 sts=2
 
-if exists('g:loaded_huge') || &compatible
+if exists('g:loaded_hugefile') || &compatible
   finish
 endif
-let g:loaded_huge = 1
+let g:loaded_hugefile = 1
 
 "
 " The default size is 2 MiB.

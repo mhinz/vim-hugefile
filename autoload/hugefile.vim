@@ -1,9 +1,9 @@
 " vim: et sw=2 sts=2
 
-if exists('g:autoloaded_huge')
+if exists('g:autoloaded_hugefile')
   finish
 endif
-let g:autoloaded_huge = 1
+let g:autoloaded_hugefile = 1
 
 " #toggle {{{1
 function! huge#toggle()
