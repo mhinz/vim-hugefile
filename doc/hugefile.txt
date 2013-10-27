@@ -1,0 +1,48 @@
+*hugefile.txt*  Handle huge files like a boss.
+*hugefile*
+       __                                 ___      ___
+      /\ \                              /'___\ __ /\_ \
+      \ \ \___   __  __     __      __ /\ \__//\_\\//\ \      __
+       \ \  _ `\/\ \/\ \  /'_ `\  /'__`\ \ ,__\/\ \ \ \ \   /'__`\
+        \ \ \ \ \ \ \_\ \/\ \L\ \/\  __/\ \ \_/\ \ \ \_\ \_/\  __/
+         \ \_\ \_\ \____/\ \____ \ \____\\ \_\  \ \_\/\____\ \____\
+          \/_/\/_/\/___/  \/___L\ \/____/ \/_/   \/_/\/____/\/____/
+                            /\____/
+                            \_/__/
+  by Marco Hinz~
+
+  Twitter: https://twitter.com/_mhinz_
+  Github:  http://github.com/mhinz
+  IRC:     mhi^ (Freenode)
+>
+  If you use any of my plugins, please star them on github. It's a great way
+  of getting feedback and gives me the kick to put more time into their
+  development.
+
+  If you encounter any bugs or have feature requests, just open an issue
+  report on Github.
+
+  Thank you for flying mhi^ airlines. Get the Vim on!
+<
+==============================================================================
+
+Vim always loads entire files. Therefore loading huge files (logfiles?) is
+pretty slow. And having the usual options set makes loading even slower.
+
+This plugin reduces the impact of the latter heavily by disabling these
+options for all huge files:
+>
+    FileType autocmds
+    syntax highlighting
+    folding
+    swapfile
+<
+This happens automatically for all files that are bigger or equal to 2 MiB.
+You can change this value by setting |g:hugefile_trigger_size| (in MiB) in
+your vimrc.
+
+Before the options for handling huge files are set, your old settings get
+saved. |:HugefileToggle| toggles the current state.
+
+==============================================================================
+vim: tw=78
