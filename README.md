@@ -11,6 +11,7 @@ for all huge files:
 * syntax highlighting
 * folding
 * swapfile
+* MatchParen
 
 This happens automatically for all files that are bigger or equal to 2 MiB. You
 can change this value by setting `g:hugefile_trigger_size` (in MiB) in your

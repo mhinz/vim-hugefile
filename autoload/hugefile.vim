@@ -36,6 +36,10 @@ function! s:restore_options()
   let &l:foldmethod = b:hugefile_saved_settings.foldmethod
   let &l:swapfile   = b:hugefile_saved_settings.swapfile
 
+  if exists(':DoMatchParen') == 2
+    DoMatchParen
+  endif
+
   doautocmd FileType
 
   let b:hugefile_enabled = 0
@@ -48,6 +52,10 @@ function! s:set_options()
   set      eventignore=FileType
   setlocal foldmethod=manual
   setlocal noswapfile
+
+  if exists(':NoMatchParen') == 2
+    NoMatchParen
+  endif
 
   let b:hugefile_enabled = 1
 endfunction
