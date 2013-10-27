@@ -8,7 +8,11 @@ let g:autoloaded_hugefile = 1
 " #toggle {{{1
 function! hugefile#toggle()
   if exists('b:hugefile_saved_settings')
-    call s:set_options()
+    if b:hugefile_enabled
+      call s:restore_options()
+    else
+      call s:set_options()
+    endif
   else
     call s:save_options()
     call s:set_options()
@@ -29,13 +33,21 @@ endfunction
 function! s:restore_options()
   let &eventignore = b:hugefile_saved_settings.eventignore
   let &foldmethod  = b:hugefile_saved_settings.foldmethod
+
+  syntax on
+  doautocmd FileType
+
+  let b:hugefile_enabled = 0
 endfunction
 
 " s:set_options {{{1
 function! s:set_options()
   syntax clear
+
   set eventignore=FileType
   set foldmethod=manual
+
+  let b:hugefile_enabled = 1
 endfunction
 " }}}
 
