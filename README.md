@@ -1,5 +1,5 @@
-*THIS PROJECT COULD NEED A NEW MAINTAINER. CREATE A NEW ISSUE IF YOU'RE
-INTERESTED. THANKS.*
+[![No Maintenance
+Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 vim-hugefile
 ------------
